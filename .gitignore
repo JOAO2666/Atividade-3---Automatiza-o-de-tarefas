@@ -1,0 +1,5 @@
+﻿extracted/
+Ativ3 Automatizacao.zip
+*.tmp
+*.pyc
+__pycache__/

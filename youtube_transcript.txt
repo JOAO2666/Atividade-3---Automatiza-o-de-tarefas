@@ -1,0 +1,1421 @@
+7.2s: Olá esse vídeo tem um propósito de
+10.6s: tratar aqui sobre a atividade de
+12.2s: automatização de tarefas e banco de
+13.9s: dados no caso aqui a aplicação de
+15.2s: trilhas no caso de gatilhos e
+18.4s: procedimentos armazenados que são formas
+20.6s: de você automatizar algumas tarefas que
+23.6s: podem ficar gravadas juntamente com a
+25.7s: estrutura do seu banco de dados e Elas
+26.9s: serão no caso das trilhas com base numa
+30.2s: ação do próprio banco de dados novo ou
+32.5s: em relação ao próprio banco de dados no
+34.6s: caso de Stories a partir de uma chamada
+37.2s: dentro de alguma aplicação previamente
+39.6s: programada pelo programador dentro
+42.5s: daquela aplicação
+43.8s: Antes de Partir para aplicação
+46.6s: primeiramente né da Trilha ou do gatilho
+49.1s: é necessário entender o contexto para
+51.8s: que você possa construir o gatilho ou a
+55.0s: trilha de forma coerente de forma
+56.8s: adequada Ao que se propõe aí a atividade
+58.3s: bom quando você pode ver aí o contexto é
+61.6s: o mesmo esse contexto que está sendo
+62.6s: apresentado no vídeo é o mesmo do da
+64.1s: atividade que é o mesmo contexto da
+65.2s: atividade e onde você vai compreender o
+68.3s: contexto a ideia da aplicação da trilha
+71.2s: nesse caso que a primeira parte vamos
+73.2s: dizer assim dessa atividade então é
+75.2s: necessário entender que dentro dessa
+76.7s: questão do
+80.2s: do da clínica médica existe aí uma
+82.6s: questão que é que cada cliente ou cada
+84.5s: paciente ele possui um plano médico um
+86.2s: plano de saúde e esse plano de saúde ele
+88.0s: está ele tem níveis né ou tipos de
+90.0s: atendimento no caso Aqui nós temos o
+92.4s: Plano Especial aonde no caso ele não tem
+94.0s: cobrança de de os exames dos exames os
+96.4s: exames não tem custo nenhum Na verdade
+98.3s: ele tá com 100% de desconto é uma
+99.5s: questão só didática aqui que está sendo
+101.0s: colocado depois o tipo de plano de saúde
+103.3s: aqui padrão ele no caso de exames de
+105.9s: exames solicitados aí pelo médico ele
+108.6s: tem 30% de desconto e o básico o plano
+110.8s: básico ele tem 10% de desconto no custo
+112.4s: dos exames médicos e nós vamos ver aqui
+114.7s: na tabela de exame ou na tabela de
+117.4s: exames né mas praticamente na tabela
+118.7s: exame ela é que onde está registrado
+120.8s: todos os valores de karizane Ok então
+124.0s: Aqui nós temos o valor do desconto para
+126.7s: cada tipo de exame médico para cada tipo
+128.4s: de plano de saúde e quando vai ocorrer
+130.7s: esse desconto esse desconto vai ocorrer
+132.2s: a cada inclusão de um pedido de exame
+134.4s: então durante uma consulta quando o
+136.7s: médico pediu um determinado exame ele
+138.2s: vai gerar aí um pedido de uma consulta
+140.6s: vai gerar um pedido de exame e aí na
+142.3s: hora de inclusão ou na hora de incluir
+144.2s: esse pedido de exame na base de dados na
+146.9s: tabela de pedido de exames Mais
+148.1s: especificamente Então esse cálculo vai
+150.3s: ser realizado ou vai ser disparado
+152.0s: automaticamente então para isso eh Será
+154.2s: necessário criar uma Trigger um gatilho
+155.9s: considerando todos esses elementos aqui
+157.7s: né esses critérios que são que é o caso
+159.4s: do tipo de plano de saúde então ele vai
+162.4s: buscar o preço do exame né
+164.2s: correspondente na tabela de exame ele
+166.0s: vai buscar o preço vai trazer e vai
+167.2s: aplicar o desconto de acordo com o tipo
+168.4s: de plano do paciente então notem que
+171.3s: essa compreensão desse problema ele é
+174.2s: extremamente importante essa lógica né o
+176.6s: entendimento dessa loja para que você
+177.6s: possa construir o seu gatilho a sua
+179.4s: trilha é de forma coerente de acordo com
+181.4s: que o contexto pede Então primeiramente
+184.4s: é isso né entender esse contexto pra que
+186.5s: a gente possa então partir aqui para
+190.6s: a construção né na verdade do da Trilha
+193.6s: ou do gatilho Então vamos lá
+196.7s: então aqui estamos já no ssms do slime
+200.9s: Studio que é o ambiente que nós estamos
+202.7s: utilizando de trabalho
+204.6s: já
+206.2s: considero aqui né que os que banco de
+208.7s: dados já está construído criado né
+210.8s: conforme vídeos anteriores então nós
+213.0s: temos aqui todas as tabelas construídas
+214.4s: e já com os dados já incluídos nas
+217.3s: tabelas
+218.1s: Então vou aqui no caso criar só uma nova
+221.8s: consulta só para fazermos uma análise
+223.7s: aqui de como está a situação da tabela
+226.7s: de pedido de exame que ela já foi
+228.2s: construída e ela já foi alguns dados já
+229.9s: foram incluídos né só que nós vamos
+231.2s: fazer uma análise aí agora nela essa
+232.7s: tabela para vocês entenderem aí o a
+236.0s: questão da utilidade e da Necessidade
+237.8s: dessa Trilha ou desse gatilho para
+240.2s: complementar aí os dados da tabela
+242.0s: pedido exame Então primeiramente vamos
+245.4s: apontar aqui vamos dizer assim pra
+247.1s: tabela da tabela não para base de dados
+248.9s: clínica médica que é a minha base de
+251.4s: dados que eles estão trabalhando o que
+253.1s: eu quero trabalhar na verdade né
+254.6s: vamos fazer direcionar em todas as
+256.6s: atividades das ações para minha base de
+259.6s: dados Clínica Médica porque notem que
+260.9s: aqui está apontando para o Master
+262.3s: poderia vir por aqui simplesmente clicar
+263.8s: aqui mas é sempre bom hã utilizarmos aí
+265.9s: os comandos né para sabermos que
+267.0s: realmente o que estamos fazendo o que
+268.6s: está sendo feito e qual é a base que
+271.0s: realmente
+271.8s: está querendo se trabalhar aí então aqui
+275.4s: ele já era uma um resultado
+276.9s: automaticamente automaticamente deu tudo
+278.6s: certo né Tudo OK Sem problemas já tá
+281.1s: apontando aqui para a minha base de
+282.4s: dados que eu quero trabalhar eu vou
+283.7s: simplesmente agora mostrar os dados aqui
+285.3s: que estão dentro da tabela pedindo o
+286.9s: exame Então vou usar um comando Opa sei
+291.1s: lá asterisco exame
+296.3s: Então esse comanda é um comando do tipo
+298.0s: bql dataco onde que é basicamente pra
+300.7s: consulta e vamos ver o que tem dentro
+301.9s: dessa tabela aqui pedir o exame o
+303.2s: resultado vai sair aqui embaixo aqui
+304.9s: então nota aqui já existem dados
+307.1s: incluídos certo e
+309.4s: dessa forma nós vamos notar aqui ó aqui
+312.0s: no valor a pagar
+313.9s: foi feita a inclusão quando ainda não
+315.6s: existia
+316.9s: o a trilha qualquer coisa que calculasse
+321.1s: automaticamente a cada entrada aqui de
+322.5s: pedido né exame que calculasse o valor a
+324.1s: pagar evidente que esse valor a pagar eu
+326.3s: poderia calcular manualmente de alguma
+328.6s: forma né através de alguma aplicação e
+330.2s: ele já gravar isso aqui através de uma
+333.1s: aplicação sistema feito em outra
+334.8s: linguagem né em Java e PHP uma aplicação
+338.5s: pronta que já previste o cálculo disso
+339.9s: aqui agora você pode fazer isso e
+341.5s: aplicação assim como você pode também o
+343.4s: quê criar já uma um gatilho ou uma
+345.9s: trilha para calcular isso
+346.7s: automaticamente pelo próprio gerenciador
+348.3s: de banco de dados Então você alivia
+349.4s: nesse caso algumas tarefas da sua
+351.1s: aplicação e essa tarefas que são
+352.6s: executadas pelo gerenciador obviamente
+353.7s: elas são muito mais rápidas do que
+355.1s: através de uma aplicação estaria aí numa
+357.4s: rede local ou pela própria internet
+358.5s: então Essas atividades também elas podem
+360.5s: ser consideradas já programadas vamos
+362.8s: dizer assim já dentro do próprio
+363.6s: gerenciador de banco de dados utilizando
+365.1s: a própria linguagem
+366.6s: SQL e as estruturas que ela possui ela
+368.9s: permite então na sequência vou comentar
+371.4s: mais a isso sobre essa ideia essa lógica
+372.9s: do o valor a pagar aí via gatilho ou via
+376.0s: Trigger dando continuidade Aí temos que
+378.6s: entender que para poder né aplicar o
+381.5s: gatilho uma vez entendido né o a
+383.1s: construção e a lógica do gatilho eh
+385.4s: nesse pra isso pra essa atividade para
+387.3s: esse caso que é gravar no caso aqui o
+388.9s: valor a pagar nós precisamos aqui nesse
+390.9s: caso eu vou precisar É vamos dizer assim
+392.8s: limpar esse arquivo né para poder fazer
+395.2s: as inclusões novamente e que a partir da
+397.0s: gravação e ativação da do gatilho que
+399.8s: nós vamos construir aí sim quando fizer
+401.3s: elas inclusões eles vão já vir com os
+402.8s: valores aqui calculados certo então essa
+405.4s: inclusão já havia sido feita mas eu vou
+406.7s: limpar essas inclusões certo e vou
+409.0s: retornar ao número de pedido Inicial
+410.1s: aqui que seria o 2.200 né Para que fique
+412.6s: tudo de acordo aí com a atividade Okay E
+415.1s: aí em seguida sim começar a explicar Aí
+418.0s: a construção a estrutura da da Trilha do
+422.3s: do gatilho para entender como é que tudo
+423.8s: isso aqui funciona Ok então aqui eu vou
+425.8s: aproveitar né eu vou carregar aí do dos
+431.1s: Comandos
+432.5s: ddl e DNL certo onde aqui embaixo eu
+437.1s: tenho
+438.4s: no caso já indicado aqui se fosse
+441.1s: necessário né aqui eu tenho a inclusão
+443.0s: dos dados do pedido do exame certo que
+445.3s: eu não vou fazer agora eu vou na verdade
+446.5s: vou apagar os que já existem lá com o
+448.7s: comando de elite tá tome muito cuidado
+450.4s: com esse comando do jeito que está aqui
+451.5s: que na verdade do jeito que ele está
+452.3s: aqui ele não tem uma seleção de
+455.2s: registros que ele vai excluir que é o
+456.8s: normal então normalmente se usa cláusula
+458.3s: Ué por exemplo aqui né o número da
+461.4s: consulta número da do da consulta igual
+464.6s: a tal número certo por exemplo então aí
+466.7s: seria o correto seria isso para eliminar
+468.4s: uma consulta ou um grupo de consultas né
+470.2s: de uma data de um período algo do tipo
+472.9s: então é o normal é usar a cláusula ué
+476.8s: alguma coisa pra ele selecionar o que
+479.1s: vai ser excluído do jeito que está aqui
+481.9s: ele vai simplesmente apagar tudo que
+484.0s: está dentro da tabela pedir exame é o
+486.2s: que nós queremos especificamente nesse
+487.4s: caso né quando eu falei toma cuidado que
+489.3s: isso não é um um procedimento normal tá
+491.2s: fazendo aqui em função
+492.5s: para atender a atividade aqui então eu
+493.6s: vou apagar certo eu já estou aqui ó no
+495.8s: meu na minha base sempre é importante
+497.0s: você tomar atenção qual a base que está
+499.5s: selecionado aqui né no caso aqui já
+501.2s: havia selecionado aqui na América e
+502.6s: agora sim eu vou deletar todos os dados
+504.0s: no meu pedido de exame
+505.6s: aqui ó ele já executou só para ter
+508.7s: certeza que realmente foi executado eu
+510.1s: vou pedir para selecionar os dados aqui
+511.9s: para apresentar para provar que
+514.0s: realmente não tem mais nada lá no pedido
+515.5s: de exame tá aqui ó tá zerado certo
+517.3s: porque agora eu vou em quando a partir
+519.5s: do momento que eu gravar e ativar
+525.1s: aqui ó ele vai entrar com valores zero
+527.8s: Mas pela trilha ou pelo gatilho ele vai
+530.2s: calcular depois e atualizar cada um
+532.0s: desses registros aqui a cada entrada
+533.1s: certo bom mas só que para isso eu
+535.0s: preciso que o último só colocar aqui o
+538.4s: comentário o último número que eu tinha
+539.9s: lá como eu criei né já vi incluindo aqui
+541.7s: alguns né um dois três quatro cinco seis
+543.2s: sete oito nove então ele teria aqui
+545.3s: basicamente do como ele começou no 2.200
+547.1s: entendeu 2.200 até o 2.208 então se eu
+550.6s: precisar mandar depois que eu criar
+551.3s: trilha e mandar incluir ele já vai
+553.2s: começar com 2.09 então ele vai ficar um
+555.0s: pouco diferente aí do que foi solicitado
+557.5s: aí pela é relatividade e o resultado
+560.4s: pode aparecer um pouco diferente então
+561.5s: isso aqui é esse comando DBC cheque e
+564.6s: Dante na tabela de exame ele vai eh
+567.1s: resetar vamos dizer assim o início da
+568.6s: numeração do Campo
+571.7s: se eu for lá na estrutura de pedido de
+574.5s: exame
+577.0s: tá aqui ó o campo número do pedido Ele é
+579.5s: do tipo Ink mas ele é um dente
+581.6s: que inicialmente eu pedi para começar
+583.6s: com 2200 incrementando de um em um certo
+586.6s: então isso quando eu queria a tabela ele
+589.3s: vai atender o que está aqui porque não
+592.0s: há nenhum outro número anterior nenhum
+593.3s: registro de nenhum a tabela não existia
+594.8s: ele não eh não havia nenhum número aí
+597.4s: Inicial então quando eu vi a tabela tudo
+599.7s: bem não precisa mas agora eu já criei já
+601.3s: havia criado e já vem incluído certo
+602.5s: então agora eu preciso que vamos dizer
+605.7s: assim resetar novamente e dizer que vai
+607.3s: começar no que o último número foi o
+608.7s: 2.199 para aqui para quando ele fizer a
+610.3s: próxima inclusão vai ser aqui o 2.200
+612.1s: que é o que indica aí o que tá indicado
+613.6s: certo na minha seria aí o início da
+617.2s: numeração dos números de pedido aqui de
+618.8s: cada inclusão Então isso é só um detalhe
+621.0s: mas é importante fazer para não ficar aí
+622.4s: diferente do contexto da atividade Então
+625.5s: esse comando ele é bem específico ele
+628.0s: serve ele serve para isso para resetar o
+630.0s: início aí de um campo do tipo certo
+632.5s: então aqui não precisa não preciso dizer
+633.9s: qual é o campo de visão ele já está
+635.2s: identificado lá que é o número do pedido
+636.9s: executar aqui tá aqui certo ele disse
+639.5s: que já foi concluído certo ok e tá tudo
+642.4s: OK tá ele disse que era o 2.208 quando
+644.9s: eu falei né então agora ele vai o
+646.9s: próximo seria 2.2009 então eu voltei ele
+649.4s: receitei para 2199 para que o próximo
+651.0s: seja um 2000 e 200 Ok então simplesmente
+653.9s: um detalhe aqui do campo não identifica
+658.6s: as características de alta numeração tá
+661.0s: então eu vou voltar o comentário Vou
+663.7s: salvar aqui para não executar aí sem
+666.0s: querer de alguma forma bom então agora a
+669.1s: minha o meu pedido de exame certo ele eu
+671.7s: vou deixar isso aqui que nós vamos
+672.5s: inserir né esses dados novamente tá mas
+674.6s: agora a partir do momento que a trilha
+677.4s: estiver criada e gravada junto ao banco
+679.9s: de dados então na sequência falarei aí
+682.8s: mais sobre a estrutura da Trilha ou do
+685.1s: gatilho como eu falei antes de fazer as
+687.1s: novas inclusões novamente nós temos que
+690.8s: executar né a criação da trilha e
+692.6s: entender na verdade como é que ela
+693.7s: funciona eu vou apagar isso aqui que ele
+694.7s: já não existe mais foi só para mostrar
+696.2s: que inicialmente como é que estava eh o
+698.5s: arquivo né a tabela de pedidos não vou
+701.0s: gravar essa sequência de comando não é
+702.4s: necessário e vou carregar aqui eu já
+704.3s: tenho aqui a trilha pronto também e
+705.6s: Vamos aí trabalhar em cima do
+707.3s: entendimento da trilha Tá Ok só que para
+709.9s: isso é claro
+711.4s: é importante eu ter aqui o meu diagrama
+714.8s: né O que representa o meu modelo Lógico
+717.9s: é muito importante a importância de você
+720.4s: ter esse modelo lógico aqui eh em mãos
+722.3s: né de forma visível aqui vocês vão ver
+724.7s: que ele vai ajudar aqui em vários
+726.1s: sentidos primeiro já foi lá na questão
+728.2s: da criação da tabelas né os comandos que
+730.5s: a gente tem lá naquela tabela
+731.4s: identificação da da dos Campos dos tipos
+734.6s: antes daquela tabela quem é quem é é
+736.9s: chave primária quem é chave estrangeira
+739.4s: e então todas essas informações estão
+741.1s: aqui Inclusive a relação entre as
+742.9s: tabelas aqui vocês vão ver que depois é
+744.6s: muito importante isso aí também tá então
+746.7s: para vocês entenderem né aqui a questão
+749.3s: da trilha é importante também eu
+751.4s: visualizar aqui o meu modelo lógico pra
+752.9s: entendendo em paralelo aí a questão da
+755.3s: trilha bom então
+756.8s: o disparador ou o gatilho ou Trader né
+759.7s: Como o próprio nome já fala né É na
+761.6s: verdade é uma forma do banco de dados de
+764.2s: executar alguma tarefa a partir de uma
+766.0s: ação ele vai executar essa tarefa
+767.1s: automaticamente a estrutura dele você
+770.0s: vai dar um nome
+771.0s: no caso aqui eu dei o nome de atualiza
+772.7s: pedido exame
+774.0s: o nome fica critério de quem está
+776.2s: construindo a trilha de acordo com
+777.4s: alguma necessidade Claro alguma
+778.9s: exigência da aplicação para e sempre
+781.7s: usar aqui na verdade um nome bem
+783.6s: sugestivo né que você consiga
+784.7s: identificar aí do que se trata essa
+786.2s: trilha aqui junto com banco
+789.5s: daqui você quiser depende como eu falei
+791.6s: da Necessidade aí da aplicação então o
+794.9s: nome sugestivo é bom para identificar
+795.8s: certo e essa ela vai ficar associada
+798.4s: gravada a tabela associada a tabela né a
+801.5s: tabela referência você é uma blindados
+803.5s: Ok então ela vai estar lá registrada
+806.0s: junto com a sua tabela no seu banco de
+808.7s: dados bom então criei de Trigueiro o
+810.4s: nome você vai informar na causa 1 o nome
+812.3s: da tabela referência certo e
+815.6s: as ações aqui as ações pode ser After
+818.6s: houve-flor são os principais alguma
+820.6s: coisa ou antes de alguma coisa ou depois
+821.8s: de alguma coisa ou antes de alguma coisa
+823.4s: assim adiante a outra parte é qual é a
+827.2s: ação também né Depois Qual é a ação de
+829.3s: referência no caso aqui é o
+832.0s: então após uma inserção ou Após a
+835.7s: execução de um comando que que você vai
+837.7s: fazer as begin começa o conjunto de
+841.1s: atividades que vai ser executado eu vou
+842.5s: explicar daqui a pouco detalhe até o
+845.0s: comando aqui até indicação de fim da
+846.7s: minha trilha certo então ele vai
+848.4s: Executar tudo que tiver entregue
+850.6s: exceção
+852.9s: então tudo que tiver aqui dentro vai ser
+855.8s: executado
+857.1s: no momento que houver uma exceção na
+859.4s: tabela pedido de exame ou seja após a
+861.2s: inserção na tabela perida de exame será
+863.4s: disparado esse conjunto de ações aqui ó
+865.1s: entre o begin Então na verdade isso aqui
+867.5s: é um procedimento né é um seria até
+870.0s: poderia dizer até que é um algoritmo
+871.0s: também porque é uma sequência de
+871.9s: atividades que estão numa determinada
+873.3s: ordem Será que tem um objetivo aí será
+875.0s: que é calcular e gravar o valor a pagar
+877.7s: de um exame por quê Porque o valor de um
+879.7s: exame ele também depende do tipo de
+882.2s: plano de saúde depende do primeiro Claro
+884.4s: do do valor do exame tem um valor
+886.1s: diferente e com base nesse valor você
+887.9s: também tem um desconto em função do seu
+891.6s: tipo de plano médico tá isso consta lá
+894.6s: já foi comentado no vídeo anterior isso
+896.2s: conta lá também na situação problema no
+897.5s: próprio atividade tá eh essa esse esse
+900.9s: requisito né então ele tá lá tá bem
+902.8s: claro que então para você calcular você
+905.5s: o valor correto a ser cobrado o exame
+907.7s: você tem que aplicar o desconto certo o
+910.2s: desconto depende do tipo de plano do
+911.7s: paciente tá então isso é muito
+913.2s: importante esse entendimento para você
+914.5s: poder entender aqui né Essa trilha então
+917.6s: ah a estrutura dela é essa tá a gente
+920.1s: briga ó o nome da tabela After no caso
+921.7s: aqui em certo porque esse After delite
+923.6s: After update e por assim aliante é essa
+926.2s: begin end e aqui dentro então eu vou
+928.6s: colocar a sequência né de atividades que
+931.2s: eu quero que seja executados em função
+932.6s: do que está sendo requisitado então para
+936.4s: isso na verdade o que que eu preciso
+937.4s: entender eu preciso entender Ok vamos
+939.4s: voltar lá rapidamente Lógico que para eu
+942.2s: poder eu quero na verdade minha proposta
+943.4s: é aqui ó no pedido de exame gravar o
+945.0s: valor a pagar porque ainda não tem
+946.6s: problema eu não tenho parâmetro não tem
+948.5s: como fazer isso né esse cálculo
+950.6s: eu poderia fazer isso através de uma
+952.1s: aplicação uma aplicação um sistema né em
+954.8s: outra linguagem em sercharpe em Java em
+958.0s: PHP à aplicação buscar esses dados fazer
+960.4s: o cálculo aí para você fizer a inclusão
+961.4s: você já fizemos inclusão com o valor mas
+962.9s: aí você estaria é também fazendo uso da
+965.2s: deixando a sua aplicação um pouco mais
+967.1s: complexa ao passo que você pode deixar
+968.9s: esse trabalho essa atividade para o
+970.4s: próprio gerenciador de banco de dados
+971.3s: além do que isso aí vai ser executado no
+973.0s: próprio servidor então ele se torna
+974.0s: logicamente muito mais rápido que você a
+976.0s: sua aplicação vem buscar esse dado no
+977.3s: banco de dado fazer o cálculo e depois
+978.7s: sim é fazer a inclusão já com esses
+981.4s: dados né com esse dado que seria o valor
+982.6s: a pagar Então no próximo vídeo vou dar
+985.4s: sequência a explicação desse dessa
+987.7s: lógica rapidamente aí para que vocês
+989.2s: possam entender melhor aqui essa trilha
+991.2s: os dados de referência eu já armazenei
+993.6s: já guardei né já acontece assim
+995.0s: conseguir capturar guardar eles a partir
+996.5s: do da do registro que foi inserida no
+998.8s: pedido do exame agora vou começar a
+1000.0s: fazer as buscas aí dos dados que vão ser
+1001.9s: importantes para o cálculo do valor a
+1003.0s: pagar então criou-se aqui a variável prc
+1006.4s: do tipo mano por quê Porque lá na minha
+1008.8s: tabela exame preço é tipo
+1010.6s: mano Ok então ele vai guardar nessa
+1012.6s: variável o preço a partir do que da
+1016.0s: tabela exame aonde lá na tabela exame O
+1017.7s: código vai ser igual ao código que eu o
+1020.4s: código daqui eu acabei incluindo o exame
+1022.0s: ele vai vir aqui em exame ele vai buscar
+1024.7s: o código e através do código ele pega o
+1026.4s: preço correspondente que é o que
+1027.2s: interessa então isso aqui ele vai
+1029.2s: guardar essa variável RC
+1031.5s: OK aí ele vai criar essa variável CPF
+1034.6s: Nota que agora ela é certo porque vai
+1037.1s: achar porque CPF aqui ó lá é baixar
+1039.0s: então note novamente a importância do
+1041.1s: modelo lógico então aqui tá um pouquinho
+1043.8s: maior tamanho Mas não tem problema tá
+1044.9s: poderia ser 14 ou mais tá não tem
+1047.2s: problema não poderia ser menos claro né
+1048.6s: Se fosse menos de menor que 14
+1052.1s: então aí clicaram a variável E aí sim
+1054.7s: com base lá nos dados de referência
+1056.4s: número da consulta aqui ó número da
+1059.3s: consulta com base naquela que eu guardei
+1060.5s: lá na variável ele vai buscar o quê
+1064.0s: com base lá no na tabela consulta vai
+1066.0s: ficar paciente CPF tá aqui ó paciente
+1068.2s: vai ficar a paciência CPF ele vai buscar
+1070.0s: o CPF correspondente para poder ir aqui
+1072.3s: na tabela paciente e aí sim buscar o
+1073.6s: plano Então esse aqui ele achou
+1075.1s: simplesmente o CPF guardou Foi Mais uma
+1076.9s: etapa aí declarou uma outra variável
+1078.4s: chamada de tipo de plano aqui também ele
+1081.9s: é do tipo fachar tá aqui ó lá tá
+1085.2s: o tipo do plano tá ok
+1087.9s: E aí ele vai fazer a busca do tipo de
+1090.1s: plano Ok ele vai recordar aqui nessa
+1091.9s: variável o tipo de plano da tabela
+1093.6s: paciente porém aquele cujo CPF seja
+1096.1s: aquele que eu guardei lá da tabela da
+1097.3s: consulta
+1098.5s: a interação que existe aí entre as
+1100.8s: tabelas né Para que eu possa chegar nos
+1102.4s: dados que eh são importantes para eu
+1104.6s: fazer o trabalho que é necessário aqui
+1107.1s: para atender os requisitos da atividade
+1108.0s: Então até aqui aí então eu consigo
+1110.1s: guardar todos os dados necessários para
+1112.0s: eu poder agora fazer o cálculo do valor
+1115.0s: a pagar aqui tem vários comentários são
+1117.2s: prints tá caso se você tirar aqui né nos
+1119.7s: comentários ele vai imprimir todos esses
+1122.2s: dados aqui na tela né lá no console que
+1123.9s: você é capturou guardou aí nessas nessas
+1126.4s: variáveis certo então ele vai indicar
+1127.5s: quem é o número do pedido por exemplo
+1128.5s: aqui você tem converter que ele vai na
+1130.1s: verdade apresentar tudo como texto tá E
+1132.4s: aqui é o número do pedido Tá ok e aqui
+1134.2s: seria para converter Ok Com qual tipo
+1135.4s: não vou achar certo porque ele é um
+1136.8s: número ele tipo numérico inteiro Então
+1138.3s: tem que converter porque para poder
+1139.6s: apresentar na tela porque ele só vai
+1141.0s: apresentar tudo que for o quê na forma
+1142.3s: de texto tá então eu tive que converter
+1143.6s: isso aqui para baixar
+1145.1s: aqui não é o que já é vai achar ele
+1147.9s: normalmente aí não preciso converter Tá
+1149.5s: ok então isso aí também são
+1150.9s: especificações detalhes técnicos da
+1152.1s: linguagem do SQL Então vou voltar aqui
+1153.8s: os comentários tá ele não imprimir isso
+1155.2s: aqui que já tá tudo correto isso aqui é
+1156.5s: só para validar e testar né se tá tudo
+1158.2s: ok
+1159.3s: E aí sim aí uma vez você tendo todos
+1162.1s: esses parâmetros aqui para cálculo E aí
+1163.7s: entra vamos dizer assim na parte mais
+1165.2s: lógica da coisa né na parte mais
+1167.5s: inteligente da da Trilha do gatilho que
+1170.4s: aonde ele vai verificar qual é o tipo de
+1172.1s: plano certo especial o padrão e básico
+1174.8s: são os nomes que estão gravados lá na na
+1177.1s: minha base de dados e então ele começa e
+1180.1s: termina já aqui né as atualizações então
+1182.4s: ele vai atualizar a tabela perdido aonde
+1184.9s: ele vai gravar aqui no campo agora pagar
+1187.2s: ok Aqui é a minha fórmula de cálculo de
+1190.2s: cada um certo aqui ó então essa parte
+1193.4s: aqui na verdade é o desconto tá uma
+1195.6s: forma didática então é o preço total
+1197.6s: menos o desconto que é o desconto é o
+1198.9s: preço vezes o desconto no caso aqui o
+1202.0s: o Plano Especial na verdade é claro que
+1203.7s: ele
+1205.0s: pelo tipo de plano ele acabou saindo
+1209.9s: provavelmente
+1213.8s: acabam saindo de graça mas é evidente
+1216.1s: que é bom deixar a fórmula pronta Porque
+1218.2s: se devia mudar esse desconto essa o
+1219.7s: critério do especial né Por exemplo ele
+1223.4s: vai ter um desconto de 90%, então aí é
+1224.9s: só colocar 90 aqui fica mais simples né
+1226.5s: do que você não fazer referência nenhuma
+1228.4s: então você tem que pensar aqui pode
+1229.6s: haver mudança no futuro pra cada plano
+1230.9s: então é sempre bom você deixar a fórmula
+1233.1s: já pronta caso aconteça alguma mudança
+1235.5s: futura mas aqui no caso ele tem 100%
+1237.3s: desconto responde a Acer não tem custo
+1240.3s: nenhum na verdade e aí eu tenho já o
+1241.7s: nome do pedido Ele vai fazer só naquele
+1242.5s: número de pedido essa alteração certo e
+1245.5s: a mesma coisa acontece com o padrão ele
+1246.8s: vai atualizar a tabela perdido o campo o
+1248.5s: valor se for o caso Tem um nife aqui né
+1249.8s: Caso seja o padrão ele vai fazer do Ben
+1251.8s: até o índio esse aqui é a mesma coisa é
+1254.2s: isso que a minha condição ele vai fazer
+1256.6s: bem até o Andy e pronto tudo que tiver
+1258.3s: aqui dentro Ok no caso do padrão a mesma
+1260.8s: coisa ele vai fazer tudo que tiver
+1263.2s: só que aí é 30% de desconto então
+1266.5s: desconto tá aqui ó ele vai pegar o preço
+1267.8s: aplicar 30% de desconto E aí esse valor
+1269.9s: vai ser subtraído do valor normal do
+1272.1s: exame que tá nessa variável prc e vai
+1273.9s: atualizar somente aquele número de
+1275.5s: pedido para aquele número de pedido e a
+1277.5s: mesma coisa para o básico né ele vai
+1278.7s: fazer do IF até o end no caso aqui é só
+1280.5s: atualização também update só que o
+1283.2s: cálculo aqui do desconto é 10% né 10%.
+1286.2s: então isso aqui é o desconto e ele vai
+1287.5s: ser subtraído do preço normal só para
+1289.5s: aquele número de pedido e aí no final
+1292.1s: ele só vai dar uma mensagem aqui né só
+1293.5s: para indicar que terminou a meta é a
+1295.5s: trilha atualiza a primeira divisão então
+1296.5s: basicamente o nome dela foi encerrada e
+1298.3s: Pronto né Isso é a minha trilha tá a
+1301.3s: estrutura dela agora eu preciso aqui eu
+1303.7s: vou precisar executar e ela vai ficar
+1306.0s: gravada depois a gente possa trabalhar
+1308.1s: aí a inclusão dos dados e ela disparar
+1310.0s: essa atualização automaticamente ok
+1311.7s: então na sequência nós vamos ver a
+1314.8s: gravação né e a execução desse gatilho
+1317.8s: vamos executar vou executar né Essa
+1320.3s: trilha tá ok
+1322.4s: vamos notar aqui quer ver vou tomar
+1323.6s: cuidado primeiro né eu tenho aqui olha
+1325.6s: se eu vier aqui nas tabelas
+1332.5s: não tem nada
+1334.4s: certo então Após a execução isso aqui
+1337.3s: essa briga quando está associada a
+1339.2s: tabela a pedir exame ela vai constar
+1340.8s: aqui na minha lista certo da tabela
+1342.6s: periquizando Ok não é uma forma
+1345.2s: realmente gravada e associada a tabela e
+1349.8s: claro ela tá vai fazer parte aí do da
+1351.5s: estrutura do banco de dados Clínica
+1352.3s: Médica Ok então vamos lá vou selecionar
+1355.2s: aqui até Wendy
+1357.7s: e vamos executar só lembrando que os
+1360.6s: dados né lá estão zerados né na minha
+1363.3s: base de dados eu não fiz nenhuma
+1364.2s: inclusão né mas não tá zerados Tá mas
+1365.8s: depois ele vai calcular Ok executou com
+1368.4s: o exército é importante sempre analisar
+1369.7s: esse esse retorno nessa mensagem de de
+1372.1s: retorno aqui do da execução toda
+1374.2s: e agora evidente que eu vou ver conferir
+1376.4s: se realmente tá tudo ok aqui então vou
+1378.3s: atualizar aqui ó
+1382.8s: atualiza pedido exame né
+1388.5s: gravado e fazendo parte da minha tabela
+1390.6s: de referência né e do meu banco de dados
+1392.7s: Tá ok então se eu clicar aqui duas vezes
+1395.2s: também ele vai trazer toda aquela
+1398.4s: sequência de comandos aqui da trilha ok
+1401.8s: já faz parte também isso aqui você faz
+1404.2s: uma vez ele já fica guardado se você
+1406.0s: precisar fazer alguma atualização
+1407.0s: obviamente uma uma possibilidade a você
+1409.5s: apagar a sua trilha eu não vou apagar
+1411.0s: claro mas você pode apagar excluir onde
+1413.2s: ele tá né seria isso o drop isso aí é o
+1414.9s: nome ele vai atualizar ele vai excluir
+1416.7s: aqui e aí você faz as atualizações
+1418.1s: executa novamente ele vai criar aí a sua
+1421.0s: atualizada tá então vou voltar aqui
+1423.1s: comentário né não tem problema mas seria
+1425.8s: uma forma de você atualizar aí a sua
+1428.1s: trilha Ok Bom enfim agora podemos aqui
+1431.7s: executar as inclusões lá no meu pedido
+1434.5s: de exame e notem aqui ó os valores a
+1437.0s: pagar aqui estão todos zerados na
+1438.3s: inclusão que eu não sei o valor
+1439.0s: obviamente porém a partir da inclusão
+1441.0s: através da trilha ele vai atualizar né
+1443.1s: através de update todos esses em certos
+1445.5s: aqui com os respectivos valores então
+1447.4s: agora vamos só confirmar né aqui ó aqui
+1450.7s: não tem nada certo tem branco
+1455.2s: e agora eu vou fazer os
+1467.7s: ele vai fazer Vai acionar trilha
+1472.6s: ele atualizou uma linha afetada
+1475.3s: atualizou a Marinha afetada e assim por
+1477.0s: diante né atualizou uma linha afetada
+1478.6s: então ele fez as inclusões e disparou a
+1481.2s: trilha para cada uma delas Ok tá tudo ok
+1483.6s: ok então agora eu preciso aqui agora eu
+1486.7s: preciso ver os dados tá para saber que
+1488.6s: realmente
+1489.4s: se foi né calculado e depois vamos
+1492.3s: conferir um deles aí para saber se tá
+1493.3s: tudo ok mesmo então vamos fazer a
+1495.1s: seleção agora lá no pedido de exame
+1497.7s: e notem que agora eu tenho aqui os
+1499.2s: valores calculados né De acordo com o
+1502.2s: que Foi estabelecido obviamente quando é
+1504.9s: feito aí executado nas primeiras vezes a
+1506.5s: trilha e tal é interessante é importante
+1507.8s: você confia em todos né obviamente no
+1509.7s: meu caso aqui eu já conferir todos mas
+1510.7s: não conferimos só para saber que a
+1512.2s: lógica tá correta aqui para todos nota
+1513.6s: que aqui ó ele voltou de 2.200 Inicial e
+1516.9s: foi até 2.28
+1518.6s: parecia aquele detalhe
+1522.2s: para você resetar aqui o seu o seu campo
+1525.3s: que tem uma característica de dente né
+1526.5s: de alta numeração então só isso essa
+1528.8s: questão aí bom então tenho aqui os
+1531.9s: valores e obviamente agora a gente
+1533.2s: precisa dar uma conferida vou pegar esse
+1534.2s: primeiro aqui só pra gente ter uma ideia
+1536.4s: de como qualquer coisa aconteceu então
+1537.4s: ele tinha aqui como código de exame o
+1538.9s: exame 10.040 certo então vamos ver o
+1543.7s: preço dele desse nessa tabela tá vou lá
+1546.4s: na tabela de exames né vou mandar
+1549.0s: apresentar aqui o 10.040 tá aqui ó ele é
+1552.1s: o preço dele é 550
+1557.4s: o preço dele é 550 o exame 10.040 tá
+1563.4s: 1040 550 é isso 550 OK aí o que que eu
+1568.6s: preciso também vamos voltar lá né
+1572.5s: um pedido do exame só pra gente conferir
+1574.8s: Então eu tenho aqui
+1576.7s: o exame aí através da consulta eu vou
+1579.5s: ter que achar o que o CPF do cliente e o
+1581.2s: CPF do cliente tem que achar o cliente
+1582.3s: quer saber qual é o tipo de plano de
+1584.4s: saúde para saber qual desconto foi dado
+1585.8s: então aqui no caso é o 22.000 certo na
+1588.7s: consulta
+1593.3s: com 22 mil o CPF do cliente é esse aqui
+1595.6s: ó 0 1 2 3 4 5 6 7 8 90 Então eu preciso
+1599.9s: saber qual é o tipo de plano de saúde
+1602.1s: desse paciente então vamos lá paciente
+1605.4s: que já foi incluído né tá aqui ó
+1609.6s: 012457890 ele é tipo padrão aqui ok
+1613.6s: então aí se eu for lá na minha
+1617.3s: apresentação
+1624.6s: volta lá no meu
+1627.9s: aqui ó no meu descritivo lá da minha
+1630.9s: atividade né os requisitos da minha
+1631.9s: atividade ele fala dos tipos de plano
+1634.7s: 30% então o padrão é o quê 30% de
+1638.2s: desconto então
+1639.7s: se eu vier aqui novamente Então vamos lá
+1642.5s: só para anotar aqui
+1646.4s: 30% de desconto então quanto que é 30%
+1649.1s: de 550
+1662.7s: 15 7 8 9 10 11 12 13 14 15 dá
+1666.0s: 85 Então esse é o valor que deveria o
+1669.4s: quê calcular e gravar lá para
+1672.3s: esse caso aqui então vamos voltar lá
+1675.4s: agora
+1677.4s: o meu pedido de exame né tá aqui
+1680.0s: 385 Então entendo aqui como esse
+1683.1s: primeiro aqui está correto simplificar
+1684.9s: essa loja está correta eu entendo aqui
+1687.3s: nesse caso aqui todos estão corretos
+1688.6s: aqui né aí você pode perguntar aqui
+1690.4s: provavelmente esse plano de saúde desse
+1692.4s: cliente aqui ele é aquele plano especial
+1693.8s: né que ele tem 100% de desconto ou seja
+1696.0s: ele não paga nada pelo pelo exame
+1698.8s: qualquer exame aqui então provavelmente
+1700.2s: especial os demais deve ser padrão
+1702.0s: básico E aí fez os respectivos cálculos
+1703.4s: aqui no notem aqui funcionou a trilha e
+1705.9s: a partir de agora ela vai funcionar
+1706.7s: sempre a cada inclusão na minha tabela
+1708.3s: de pedido de exame ele vai sempre
+1709.9s: calcular conforme né conforme a lógica
+1712.1s: da minha trilha aqui certo ele vai fazer
+1714.0s: todo esse procedimento aqui novamente
+1715.0s: automaticamente a cada inclusão na
+1717.4s: tabela pedir o exame Tá ok na sequência
+1720.2s: nós vamos agora falar sobre
+1722.7s: armazenamento
+1724.5s: o procedimentos e também a sua estrutura
+1727.8s: e como é que funciona essa questão de
+1730.2s: estudar possíveis e também vai ficar
+1731.7s: registrado lá no banco de dados então
+1733.2s: uma vez entendido e Realizado
+1735.8s: a criação da minha trilha do meu gatilho
+1738.7s: e como vimos aí no vídeo anterior que eh
+1742.4s: uma vez funcionando né ela vai ser
+1744.8s: executado automaticamente e agora eu já
+1746.2s: tenho né os dados de valor pagar
+1748.0s: registrado lá na minha tabela no caso de
+1749.6s: pedido de exame agora então nós temos
+1750.9s: com um dissições aqui de atender a
+1753.4s: próxima etapa aqui né do dessa atividade
+1755.0s: aqui da automatização de tarefa de
+1756.2s: bancos aonde Store possíveis ou
+1758.1s: procedimentos armazenados também fazem
+1759.6s: parte desse conjunto de recursos aí né
+1761.8s: de estruturas que permitem você
+1763.6s: automatizar tarefas aí em um banco de
+1766.0s: dados então conforme aqui o requisitos
+1768.7s: da atividade ele pede que sejam criados
+1770.1s: consultas né através de procedimento
+1771.8s: armazenados aonde apresenta aí os dados
+1773.6s: de agenda dos médicos exame solicitados
+1775.7s: históricos de pagamentos agora que eu
+1776.9s: tenho os valores a pagar aí registrado
+1778.3s: assim como resumo de pagamentos
+1780.4s: então por isso que foi executada Trigger
+1783.1s: primeiro né Para que pudesse ser
+1784.9s: registrado em todos os valores a pagar
+1786.3s: para poder atender esses essas consultas
+1787.6s: que podem ser até utilizadas para gerar
+1789.5s: relatórios né no formato de relatórios
+1791.2s: seja até em papel mesmo ou na própria
+1793.2s: tela do computador
+1794.4s: então para que possamos entender agora
+1797.3s: requisitos né que isso aqui surgiu com
+1799.3s: base em algumas exigências algumas
+1800.3s: necessidades da aplicação que
+1801.9s: precisariam aqui de alguns dados né já
+1804.1s: agrupados e que tratam determinado
+1806.4s: assunto dentro da questão aqui do
+1807.8s: assunto Clínica Médica então de repente
+1809.4s: Alguém precisa saber como é que tá a
+1810.2s: agenda dos médicos hã precisam saber
+1811.6s: quais exames foram solicitados e um
+1813.9s: histórico pagamentos para para a questão
+1815.7s: da área financeira assim como um resumo
+1816.6s: de pagamentos Então essas essas
+1818.8s: consultas normalmente elas surgem
+1820.1s: conforme a necessidade de alguma área de
+1822.5s: alguém dentro da empresa ou de uma
+1824.1s: organização no caso aqui destacou-se
+1825.7s: quatro consultas as quais nós vamos
+1827.6s: agora também é apresentar né a estrutura
+1829.9s: de uma história e como né O que contém
+1832.3s: cada um e como elas foram construídas ok
+1836.0s: isso aqui eu vou fechar aqui
+1838.2s: vamos voltar aqui ao nosso
+1840.8s: ssms que é a nossa ambiente ele trabalha
+1843.9s: aqui que facilita também né um trabalho
+1845.2s: aqui da parte de construção e não são da
+1849.4s: tabela Mas de todos os recursos que
+1850.6s: envolvem banco de dados
+1852.8s: então agora na verdade eu tenho aqui só
+1855.0s: os dados já criamos aqui a trilha para
+1857.6s: fazer os cálculos eu vou na verdade
+1858.7s: agora carregar aqui a primeira Store pro
+1860.3s: que é na conforme lá na sequência e
+1862.7s: agenda de médicos certo então
+1865.1s: essa história Possible
+1873.6s: médicos como sempre um nome bem
+1875.8s: sugestivo né que você pode ter várias
+1877.2s: possíveis dentro de dados aí tem
+1879.5s: aplausos E aí begin E dentro dele é o
+1882.7s: que eu vou colocar a minha sequência aí
+1884.8s: de comandos né que vão fazer parte da
+1886.3s: manhã possível no caso das torcida ela
+1888.8s: tem uma diferença em relação
+1891.3s: a trilha que ela na verdade ela não é
+1893.8s: disparada automaticamente tem que ter
+1894.9s: uma intervenção de alguém para executar
+1896.7s: para mandar executar essas próprias
+1898.5s: Então como é que eu faço para executar o
+1900.2s: comando Execute ou zerar aqui apenas
+1902.0s: tanto faz reset ou Execute
+1906.5s: E aí sim ele vai executar aquela
+1908.1s: determinada história então ela não é
+1910.5s: automática tem uma intervenção de alguém
+1912.6s: que para disparar nem que seja da
+1914.1s: aplicação de alguma aplicação mas alguém
+1915.1s: também dentro da aplicação vai ter que
+1916.3s: eh fazer essa indicação de chamada pro
+1919.8s: Para uma determinada história possível
+1921.0s: então por isso que eu chamo de
+1922.3s: automatização e não automação que é
+1924.4s: automatização é quando tem a intervenção
+1925.6s: humana automação não tem intervenção
+1927.3s: nenhuma não é o caso né da do caso da
+1929.4s: Store Tá ok então no caso aqui traz para
+1934.4s: conseguir eu poderia usar aqui o site
+1935.6s: mas poderia usar o update poderia usar
+1937.6s: de Elite um conjunto de comandos aqui do
+1939.8s: SQL no caso aqui tá só para demonstrar a
+1943.7s: estrutura do cliente possível e a gente
+1945.3s: vê depois funcionando essa história
+1947.5s: possível e as várias formas como você
+1948.8s: pode acionar uma história bom nesse caso
+1952.6s: aqui ele tá usando simplesmente o
+1953.9s: comando select porém como select um
+1955.5s: pouco mais é trabalhado né vamos dizer
+1957.1s: assim um pouco mais complexo né tão
+1958.2s: complexo mas é mais do que a gente tá
+1960.2s: acostumado ver aí em cursos né Ele é um
+1961.8s: pouco mais trabalhoso vamos dizer assim
+1963.1s: ele na verdade a ideia é o quê como se
+1965.5s: trata de agenda de médico então ele vai
+1966.9s: trazer alguns dados de
+1969.2s: fontes de ou seja de tabelas diferentes
+1971.5s: Ok Isso é muito comum em considerar de
+1975.5s: banco de dados ou de consultas você
+1978.1s: buscar os dados
+1980.0s: só que para fazer isso você precisa
+1981.8s: fazer o quê associar corretamente aí
+1984.8s: os elementos de cada tabela para poder
+1987.0s: fazer realmente o valor correspondente
+1988.5s: senão você tá trazendo uma coisa que não
+1990.0s: tem nada a ver com aquele eh aquele
+1991.9s: registro de dados lá então aqui ele tá
+1994.6s: trazendo o nome do médico a
+1996.5s: especialidade o CRM ou o número da
+1998.4s: consulta a data da consulta o horário da
+2001.5s: consulta o nome do paciente o CPF do
+2003.1s: paciente e o plano do paciente o nome e
+2004.7s: o título do plano do paciente então
+2005.6s: notecção dados de fontes totalmente
+2008.6s: diferentes tá mas elas têm uma forma de
+2012.3s: você associar E aí é que entra também ok
+2014.3s: a questão do meu modelo lógico através
+2016.7s: do meu modelo Lógico que eu consigo
+2017.6s: identificar aqui as várias associações
+2019.5s: né ou ligações vamos dizer assim entre
+2021.4s: as várias tabelas daquele banco de dados
+2023.9s: sempre é importante você tem em mãos
+2026.4s: modelo Lógico tá para uma série de
+2028.1s: aplicações que você pode ter de uso de
+2029.6s: recursos de Seu banco de dados aqui
+2031.2s: então na sequência Nós vamos né vou
+2033.5s: comentar um pouco mais aí sobre a
+2035.1s: construção e
+2036.3s: esse elemento que está dentro da minha
+2038.2s: Store que no caso aí É o comando
+2039.9s: selection como eu falei hã no caso aqui
+2043.5s: está saindo aqui para consulta para
+2046.1s: emitir uma lista na verdade né de dos
+2047.9s: vários médicos tá não é só de um médico
+2049.4s: poderia ser só de um médico aqui no
+2050.5s: calção de todos ok É claro que baseado
+2052.5s: numa determinada ordem aqui como nós
+2053.7s: vamos ver então voltando aqui a questão
+2056.0s: dos dos dados que estão sendo
+2058.1s: selecionados é o nome do médico
+2059.3s: especialidade o CRM médico da consulta
+2062.1s: da data da consulta o horário o nome do
+2064.2s: paciente o plano e o tipo dele então só
+2065.6s: que isso vem de fontes diferentes Então
+2066.8s: na verdade aquele nome do médico ele se
+2068.6s: encontra onde ele se encontra na tabela
+2069.6s: médico especialidade também tá aqui
+2071.7s: porém depois solicitado o número da
+2074.1s: consulta a data da consulta e o horário
+2076.1s: e aonde que tá isso aí está aqui na
+2078.2s: tabela consulta
+2080.0s: e depois pede os dados do paciente não
+2081.7s: CPF nome do plano tipo onde estão esses
+2084.0s: dados estão aqui ó na tabela pacientes
+2085.7s: Então aí é importante saber o quê a
+2087.0s: relação entre eles aqui para que eu
+2089.0s: possa eh estabelecer né Essas ligações
+2091.9s: corretamente e trazer os dados também
+2093.1s: corretamente aqui que faz referência hã
+2095.5s: que eu sei que consulta daquele paciente
+2097.4s: que foi atendido para aquele determinado
+2098.3s: médico né para não aqui não posso ver
+2100.2s: aqui nenhum erro porque senão deve ter
+2102.6s: alguma vai ter alguma coisa errada
+2103.4s: Provavelmente na questão das relações aí
+2105.5s: entre uma tabela e outra bom então com
+2107.0s: relação aos dados são esses aqui agora
+2108.3s: começa a parte de relacionamento entre
+2110.6s: as tabelas então esses dados aqui alguns
+2112.4s: deles né eu vou trazer a partida da
+2113.6s: tabela do médico eu estou aqui dando um
+2115.4s: apelido para ela de m é esse apelido
+2117.5s: aqui precisa ser sempre uma letra Só não
+2119.2s: pode ser duas três mas nada que seja
+2121.2s: muito maior do que o nome da tabela tá
+2122.5s: porque senão aqui o que eu poderia fazer
+2123.9s: é o quê colocar o nome da tabela certo
+2126.1s: poderia colocar aqui mencionar o nome da
+2127.7s: tabela porém às vezes tem tabela que tem
+2130.1s: um nome um pouco mais extenso então
+2130.9s: ficaria muito trabalhoso toda hora fica
+2132.4s: repetindo aqui da onde de conta dela
+2133.6s: está vindo aquele dado Então você tem um
+2136.1s: recurso de usar Cristiane de áreas ou um
+2138.3s: apelido de game E aí por isso que tem cm
+2141.1s: na frente dos dados médio assim como né
+2143.9s: na tabela consulta o que vem na tabela
+2145.5s: consulta eu estou eu apelidei aqui vamos
+2147.5s: dizer assim dizer então a consulta sem
+2149.4s: data e assim por diante do paciente os
+2151.7s: dados do paciente eu acho meio difícil
+2155.5s: por isso que eu tenho pena na frente
+2157.1s: então agora a parte mais importante essa
+2160.0s: parte aqui ó então boa parte dos dados
+2162.3s: médico que eu estou
+2164.3s: unindo juntando com a tabela consulta
+2177.8s: de consulta pelo campo é ficar médicos
+2180.6s: RN então aqui é importante o que saber
+2182.6s: quais são o elo de ligação entre essas
+2185.0s: tabelas sempre a relação de um para ele
+2186.5s: né então no caso do médico é o CRM aqui
+2188.9s: ó com a minha chave estrangeira na
+2191.9s: tabela consulta Então tá aqui ó CRM com
+2194.2s: CRM Então essa é a minha ligação entre
+2196.4s: esses dois aqui olha como é importante
+2197.6s: novamente esse diagrama visível aqui né
+2201.0s: em mãos para que você possa também na
+2202.7s: hora de montar uma construção mais
+2205.5s: complexa de um Salete você saber quais
+2207.2s: são os campos de ligação aí nesse caso
+2208.8s: bom mas não é só médico e consulta que
+2211.4s: eu tenho usado também preciso dados que
+2213.0s: estão lá no paciente então também ó
+2214.8s: quero fazer uma junção com o paciente
+2216.7s: certo
+2225.1s: isso consulta agora desculpa é paciente
+2227.1s: com consulta e paciente então não é
+2229.9s: somente consulta também precisa fazer
+2231.0s: com a tabela paciente que também chama
+2233.1s: de P ou no que qual é o meus Campos de
+2235.4s: ligações Qual é a minha ligação paciente
+2236.8s: com consulta então aqui eu tenho ó
+2238.0s: paciente com consulta paciente é o que é
+2240.2s: ficar paciente CPF com o CPF lá em
+2242.3s: paciente então nota em qual é a minha
+2243.9s: ligação aqui ó Então eu ligo consulta
+2245.6s: com o médico e ligo consulta com o
+2247.1s: paciente e aí eu consigo ter os dados
+2248.8s: aqui né correspondentes aqui de todos
+2250.7s: corretamente através do quê aqui no caso
+2252.9s: é a minha chave estrangeira continua a
+2254.0s: minha chave né a relação de um para ele
+2255.5s: aqui então clicando aqui importante é
+2257.3s: ter sempre aqui possível a visão do meu
+2260.0s: diagrama do modelo lógico então aqui
+2262.7s: estou fazendo essa relação não importa a
+2264.9s: ordem aqui quem vem primeiro depois tá
+2266.3s: simplesmente O importante são os campos
+2267.9s: corretamente no caso aqui do consulta
+2268.9s: CPF com CPF lá do paciente e eu quero
+2273.3s: que essa lista ordenada pelo nome do
+2275.3s: médico e depois dentro do mesmo né
+2276.9s: porque eu tenho às vezes o médico tem
+2277.7s: várias consultas aqui né
+2279.5s: Período E aí então eu quero que ele
+2281.9s: traga sempre né numa determinada ordem
+2283.5s: consulta também ele vai ordem de
+2285.7s: alfabética de nome depois por data de
+2287.0s: consulta sempre no caso aqui de do menor
+2288.8s: com maior tá Por quê Porque ele assume
+2290.4s: aqui ascendente ordem ele tem o
+2292.9s: ascendente e o descendente deixa eu
+2295.0s: colocar assim descendente essa cláusula
+2296.1s: ele viria em ordem do maior menor ordem
+2298.6s: invertida né no caso aqui quando você
+2300.9s: não colocar nada ele assume o padrão
+2302.0s: como ascendente não são detalhes do
+2304.3s: comando Celeste tá isso lá no comando
+2305.7s: select tá também falando a gente não
+2307.6s: possuído aqui nesse caso Ok então a
+2309.8s: minha história possuída Ela tá aqui tá
+2311.4s: pronta tá compreendida o que que precisa
+2313.0s: eu preciso simplesmente agora Executar a
+2315.2s: criação tá só a criança de criar eu vou
+2317.3s: vir aqui né tem programação certo em
+2320.4s: procedimentos armazenados e eu voltar
+2322.2s: que não tem nada aqui certo vão aparecer
+2324.4s: aqui embaixo então eu não tenho nada
+2325.9s: aqui ó abaixo desse outro item aqui
+2327.7s: armazenado então não tem não mostrar
+2334.5s: seleciona aqui né toda minha estrutura e
+2336.8s: depois executar aqui executou
+2338.9s: corretamente Ok antes de executou a
+2343.1s: gravação né ele gravou isso lá no banco
+2344.7s: em dados como um elemento não tem dados
+2346.2s: para executar eu vou ter que usar
+2347.4s: Execute mas primeiro eu vou ver se
+2348.8s: realmente
+2351.0s: aparece agenda médicos tá aqui dentro de
+2354.6s: programação agora ela fica registrada
+2357.5s: como parte da minha base da minha base
+2358.8s: de dados ela não tá necessariamente
+2360.2s: pelada
+2361.3s: especificamente é uma tabela
+2368.7s: uma vez gravado
+2374.5s: aqui a minha história no City executada
+2389.2s: os respectivos dados né de consulta e de
+2392.0s: paciente o médico que atendeu Em que dia
+2394.7s: que ora Qual foi o paciente que ele
+2396.1s: atendeu certo e Qual é o plano e o tipo
+2397.7s: desse cliente então isso aqui em ordem
+2400.4s: alfabética
+2402.2s: e depois por data aqui de consulta aqui
+2405.0s: dentro desse conjunto aqui ó
+2410.5s: dentro desse conjunto de mesmo
+2413.0s: do mesmo médico ele vem na ordem de
+2427.0s: grupo de médicos aqui ou por data da
+2429.8s: consulta Ok Então essa é a nossa
+2432.3s: primeira história possuída aqui
+2433.1s: executada tá toda vez que eu precisar
+2434.7s: executar é simplesmente mandar executar
+2436.5s: certo seja aplicação ou seja manualmente
+2440.1s: na sequência vamos ver mais outras estar
+2443.0s: conseguindo se conforme aí ah os
+2444.9s: requisitos da atividade é até o momento
+2446.7s: aqui em relação ao procedimento
+2447.6s: armazenados fizemos aqui né a agenda de
+2450.0s: médicos e agora vamos ver como é que
+2451.6s: seriam as outras consultas aqui no caso
+2453.3s: agora solicitado pagamentos tá uma breve
+2456.6s: eh explicação cada um né E a sua
+2459.9s: gravação e a sua execução Então vamos lá
+2461.6s: vamos voltar aqui ao nosso é
+2465.2s: o nosso ambiente de trabalho que é o SMS
+2466.8s: vou fechar isso aqui nós vamos precisar
+2468.1s: mais incluir nada certo vou deixar isso
+2471.2s: aqui por enquanto e vou carregar a
+2472.5s: próxima que seria exame solicitados Tá
+2475.0s: ok então da mesma forma né o cliente
+2477.0s: possuído em nome é estrutura end E aí
+2479.9s: ele vai executar aqui dentro então aqui
+2481.4s: ele vai trazer aqui o nome do médico
+2482.5s: especialidade esse RN da consulta
+2485.7s: especificação tá isso aqui é mais para
+2488.1s: saber quais exames foram solicitado
+2494.3s: aqui as tabelas médicos com consulta e
+2497.5s: pedido de exame
+2499.8s: e exame então aqui veja que já nós temos
+2502.0s: mais tabelas aqui nós temos médico uma
+2503.7s: duas pedido de exame 3 e 4 com exames
+2507.6s: Então na verdade ele tá juntando todas
+2509.3s: essas quatro tabelas aqui para gerar a
+2511.6s: relação de exames solicitados por quê
+2512.7s: Porque ele quer também o nome né se não
+2514.5s: me engano aqui a especificação
+2517.6s: aqui ó ele quer especificação do exame
+2519.2s: que isso tá lá na tabela de ânion então
+2521.3s: através das relações de ligação aqui né
+2523.2s: Campus chave com Campos Chaves
+2525.9s: estrangeiros
+2527.1s: com chave estrangeira aqui chave
+2529.2s: primária com chave estrangeira da chave
+2530.2s: primária com chave estrangeira você faz
+2531.4s: as ligações e para gerar os dados que
+2534.5s: são solicitados aí dentro da atividade
+2537.4s: ordenado por nome do médico visando no
+2539.9s: caso agora é questão de exame então nota
+2541.7s: tem novamente aqui uma consulta que é o
+2543.3s: meu diagrama do modelo Lógico ele também
+2545.7s: se torna importante para ajudar aqui eu
+2548.2s: agilizar a construir aqui o meu comando
+2551.1s: vamos dizer assim de consulta dentro da
+2553.2s: minha própria torcida também ela tem
+2555.1s: outraspecto né ela não é simplesmente
+2556.3s: uma você usar de forma vamos dizer assim
+2559.5s: aleatória quando você tem as vezes uma
+2561.8s: uma um dizer assim algo que você precisa
+2564.9s: fazer com uma certa complexidade então
+2566.0s: Aí você guarda isso dentro de você ter
+2568.5s: isso aí guardado em arquivo separados os
+2570.0s: arquivos próprios e só você conhece que
+2572.7s: você copiaria executasse quando
+2573.9s: precisasse né em vez de você ter isso
+2575.5s: você já deixa registrado junto com o
+2576.9s: banco de dados sair com base nos nomes
+2578.9s: bem né
+2580.1s: indicativos que ele tem uma uma
+2582.0s: explicação já né uma indicação que seja
+2583.5s: que ela está torcida você simplesmente
+2584.7s: executa certo então a grande vantagem
+2587.1s: possível é para você armazenar
+2588.2s: procedimentos mais complexos que vão
+2590.1s: ficar registrado que são bancos Ok
+2591.8s: quando você precisar você é simplesmente
+2593.7s: executa mas nesse caso aqui nós
+2595.5s: precisamos gravar primeiro né Nós vamos
+2596.8s: gravar essa outra está prossiga só tem
+2598.1s: essa daqui da agenda eu vou executar
+2601.8s: eu vou atualizar aqui esse lado esquerdo
+2603.2s: mas ele demora um pouco certo
+2605.0s: procedimentos armazenados aqui ó exame
+2607.5s: solicitados exames solicitados Ok então
+2609.5s: agora também posso executar
+2612.0s: essa possível
+2619.8s: por ordem de médico certo e depois dá tá
+2622.5s: visando né
+2625.4s: médico e depois da atualizando conforme
+2628.5s: que está aqui no comando select
+2631.8s: então tá bem nota aqui é uma lista que
+2633.7s: pode ser transformada depois num
+2634.8s: relatório certo aí passou um relatório
+2636.9s: mas apresentava né mais detalhes isso
+2639.1s: pode ser na forma de imprensa ou
+2640.5s: simplesmente uma consulta na tela
+2642.7s: porém ele já está aqui de uma forma bem
+2644.7s: apresentado aqui mas a ideia da história
+2647.5s: enfatizar que é você deixar registrado
+2650.3s: uma sequência de atividade muito
+2653.4s: complexo que você necessite dele uma
+2655.8s: certa período de cidade vou começar com
+2657.2s: a frequência E aí você já tem ele
+2658.4s: registrado junto ao banco de dados e
+2659.8s: simplesmente você só é faz essa chamada
+2661.8s: através do Execute ou deserto pode ser
+2663.9s: através de uma aplicação feita numa
+2665.6s: linguagem qualquer aí e então Isso
+2667.5s: facilita bastante até quando eu falei já
+2669.3s: várias vezes para a própria aplicação
+2670.4s: certo que está lá às vezes né fazendo
+2673.1s: uma série de outras trabalhando mais a
+2674.2s: parte de interface né deixar essa parte
+2676.1s: de processamento da parte com o próprio
+2677.8s: gerenciador acho que ela é muito mais
+2679.0s: longe muito mais rápido porque ele já
+2680.0s: está dentro do próprio gerenciador de
+2681.5s: banco de dados então pode ser exatamente
+2682.8s: muita parte das lógica de todas as
+2684.2s: regras do negócio você pode deixar
+2685.4s: armazenado dentro de Traders né gatilho
+2687.9s: ou mesmo através
+2689.6s: só vai fazer o uso dessas esses recurso
+2692.0s: já previamente gravados no banco de
+2693.5s: dados
+2694.2s: Então vamos agora partir para a próxima
+2695.7s: tá
+2696.8s: eu tenho aqui
+2699.0s: o histórico de pagamento também tá que
+2702.5s: também tá aqui olha o nome dele
+2705.3s: é subminho gente também da mesma forma
+2708.1s: que apenas poderia
+2711.0s: já com os cantos definidos e as relações
+2713.7s: também definidas por ordem aqui no nome
+2715.0s: do paciente então eu tenho uma história
+2716.6s: de pagamento Aqui quem tá pagando o
+2718.7s: paciente né então vamos ver aqui né
+2721.8s: os pagamentos que ele fez mas primeiro
+2723.6s: eu preciso
+2725.2s: só tem essas duas aqui também né
+2736.7s: Vamos abrir essa parte de programação
+2738.5s: histórico pagamentos Ok vou executar
+2744.9s: tá aqui o quanto cada cliente pagou aqui
+2747.0s: né em detalhe para cá
+2750.8s: então nós temos aqui
+2754.0s: um paciente certo
+2762.1s: exames os valores correspondentes e
+2764.3s: assim por diante
+2768.6s: possível com o histórico
+2772.7s: de cada cliente aqui
+2777.2s: então agora na sequência nós vamos vou
+2780.0s: mostrar para vocês o nosso último último
+2783.8s: Mas é só para eh mostrar aqui também
+2786.9s: mostrar possíveis elas podem ter também
+2789.1s: podem ser parametrizadas agora ficou
+2791.0s: faltando apenas essa última História
+2792.5s: possuído aqui que é o resumo de
+2793.2s: pagamentos hã que como eu falei ela tem
+2795.7s: uma diferença entre as outras histórias
+2796.8s: possível que ela é hã vamos dizer assim
+2798.1s: ela foi preparada para receber um
+2799.5s: argumento Então como uma forma de
+2801.2s: selecionar aí é de qual paciente que eu
+2804.0s: quero aquele resumo de pagamentos né
+2805.9s: então ele vai consolidar Mas a partir de
+2807.9s: um único paciente que eu informar para o
+2811.1s: parâmetro aí da com parâmetro da minha
+2813.6s: história possíveis é uma outra forma
+2815.0s: também mas existem e é importante que
+2816.2s: seja apresentado essa outra forma também
+2817.7s: do é de como eu posso trabalhar com uma
+2819.8s: história possível então vamos voltar
+2821.0s: aqui vai estar do ambiente do ss e vou
+2824.0s: carregar aqui essa outro a nossa última
+2826.4s: aqui certo
+2830.5s: aonde que eu estou crianças
+2863.6s: então aqui é na verdade a única novidade
+2866.4s: seria o quê a passagem de parâmetros né
+2868.8s: então ele vai esperar ele vai guardar
+2870.0s: uma um dado além da execução né além do
+2874.1s: nome da da torcida Ele vai esperar que
+2876.2s: seja informado do lado aqui também de
+2877.5s: quem que eu quero e seja executado né
+2879.2s: porque ele vai estar aqui ó ele vai
+2881.0s: fazer parte da minha cláusula Ué então
+2882.9s: ele só vai selecionar esse Então tá
+2885.8s: Então esse parâmetro que eu estou
+2887.4s: passando ele vai fazer parte dessa
+2888.5s: variável que vai ser utilizada dentro da
+2890.0s: minha cláusula para selecionar somente
+2892.1s: aquele paciente é isso que ele espera
+2893.7s: aqui na hora de ser executado E aí Claro
+2896.1s: ele vai simplesmente nesse caso como é
+2898.4s: um resumo ele vai fazer o total né Se
+2901.0s: vocês notarem aqui né deixei até aqui no
+2903.8s: anterior seria o histórico de pagamento
+2905.0s: esse Leonardo por exemplo que eu estou
+2907.9s: usando lá como exemplo ele tem vários
+2909.6s: pagamentos então eu quero saber qual é o
+2910.8s: total desse pagamento não quero saber
+2911.8s: detalhe né Eu quero saber quanto que ele
+2913.2s: pagou realmente informação diferente é
+2914.7s: uma informação já é totalizado vamos
+2917.2s: dizer assim então por isso que aí eu uso
+2918.8s: o grupo vai aí ele já me totalizar por
+2921.2s: esse grupo aqui que é o nome né que é
+2923.4s: uma parte comum então essa parte comum e
+2925.2s: vai totalizar com o valor a pagar como é
+2927.1s: que ele sabe que ele tem que totalizar
+2927.9s: no valor a pagar porque estou aqui ó
+2929.9s: usando
+2931.4s: uma função de agrupamento que é o sangue
+2933.3s: então isso aqui na verdade
+2935.2s: porque isso faz parte do comando sei lá
+2937.7s: não tem nada a ver com o cidrin tá isso
+2939.9s: aqui no comando Será que ele tem esse
+2940.9s: recurso de usar funções de totalização
+2943.2s: de agrupamento vamos dizer assim
+2944.9s: você tem uma série de outros você tem
+2946.8s: uma dessas funções para você poder usar
+2948.0s: ou Goodbye Ok então eu já posso fazer
+2950.6s: isso dentro do próprio comando selection
+2952.7s: sim
+2958.6s: Não é porque eu estou usando dentro do
+2960.3s: Stories não eu poderia usar fora do
+2963.2s: normal variação vamos dizer assim do
+2965.0s: selec normal Ok eu peço não porque eu
+2967.8s: quero um deles tem que ser agrupado eu
+2970.1s: tô dizendo por onde que ele vai me
+2971.0s: agrupar certo que no caso é pelo nome
+2972.8s: que é o campo comum que se repete
+2974.4s: poderia ser pelo CPF também tá não tem
+2976.0s: problema
+2976.9s: e o Sam que é de agrupamento é onde que
+2979.6s: ele está que ele vai ocorrer esse
+2981.3s: agrupamento aí tá E esse é o parâmetro
+2984.2s: que eu vou passar exatamente o nome
+2985.5s: desse
+2986.3s: paciente aqui então essa é a ideia desse
+2989.2s: dessa Possible que é a única diferença
+2990.8s: que temos de possível é a passagem de
+2992.8s: parâmetro certo é assim que eu construo
+2995.4s: e assim que eu passo o parâmetro na hora
+2997.5s: de executar evidente que fosse numa
+2999.2s: aplicação você passaria aqui mano
+3000.9s: variável aqui né ele também pode aceitar
+3002.3s: Ok E aí executar de acordo com o que o
+3005.8s: aplicação solicitar lá o que foi passada
+3007.4s: que parâmetro via variável né aqui a
+3009.1s: gente tá passando diretamente Então
+3010.1s: vamos gravar essa Store pro signo OK ela
+3014.0s: não existe aqui ainda como possível
+3020.3s: e agora eu vou executar
+3023.1s: Vou atualizar aqui
+3027.2s: eu vou abrir aqui ó resumo de pagamento
+3034.0s: ele vai resumir e vai aparecer esses
+3036.2s: dados aqui o nome o valor a pagar e só
+3038.2s: basicamente para isso fazer as ligações
+3041.3s: né
+3042.7s: e dos pedidos de exame para chegar aqui
+3045.3s: ó então nota que tudo isso aqui é
+3046.8s: importante essas relações né e o que que
+3050.1s: ele precisa somar que no caso aqui eu
+3051.7s: chamei de pe quem que é o pedido de
+3053.9s: exame
+3057.0s: esse campo aqui
+3060.4s: então agora vamos executar
+3062.4s: aqui
+3063.5s: 1155 então a somatória disso aqui tudo é
+3066.7s: 1155 vamos pegar aqui
+3070.0s: da Maria Pereira que é mais fácil né vai
+3072.7s: dar 119 é isso é isso se eu pegar esses
+3075.5s: dois aqui somente
+3078.4s: o resultado Tá ok Maria Pereira
+3083.4s: tem que tomar cuidado exatamente igual
+3084.9s: aqui tá lá na no banco gravado né para
+3087.7s: não ter problema então vou executar isso
+3089.8s: aqui novamente tá bom 19 então né
+3094.5s: confirmar que isso
+3099.4s: então
+3101.1s: essa ideia Tá OK são normalmente ações
+3105.8s: que você quer executar em relação ao
+3107.5s: banco de dados Ok por causa outras
+3110.2s: instruções né como já falei update não é
+3113.6s: muito comum mas update poderia usar aqui
+3116.3s: também em conjunto dentro de uma Store
+3118.6s: possível então e você tem aí várias
+3121.6s: formas que pode ser aplicados aí
+3122.5s: comparando com a passagem de parâmetros
+3124.2s: ou não
+3125.1s: e a função principal possível é você
+3128.4s: tem um conjunto de ações ou uma ação
+3130.7s: muito complexa você grava e só
+3132.1s: simplesmente executa através do Execute
+3134.8s: ou dois é que o nome da sua história e
+3137.9s: então você não precisa ficar repetindo
+3139.4s: ou trazendo de outros lugares né de
+3141.6s: outros arquivos secretos aí particulares
+3143.3s: um né copiar e colar para ser executado
+3145.1s: não ele já faz parte do banco de dados
+3147.0s: já está aqui à esquerda todas as torcida
+3149.3s: já estão aqui então pelo nome aqui né
+3150.9s: bem sugestivo você pode saber Você
+3152.7s: Evidente e normalmente é bom ter uma uma
+3154.0s: documentação certo e que possa ajudar
+3156.5s: também a entender o que cadastrar ela se
+3159.7s: propõe a fazer aí porque realmente essa
+3161.2s: essa aqui é muito simples eles não são
+3164.2s: tão complexos apesar de a primeira vista
+3166.3s: é um pouco complexo mas para quem
+3168.1s: trabalha com uma gama de de banco de
+3169.9s: dados com banco de dados com uma tabela
+3171.4s: com conjunto né um número e tabelas
+3174.1s: muito grande é essa variação também de
+3176.5s: despreza ela é muito grande então tendo
+3178.3s: aqui o nome sugestivo uma documentação
+3179.5s: facilita você entender todo esse o que
+3181.5s: que cada um faz o que cada um é
+3183.0s: propósito de cada signo
+3184.8s: [Música]
